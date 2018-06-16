@@ -144,6 +144,7 @@ public class GirlController {
 - 源码下载：[github](https://github.com/runzhenghengbin/SpringBoot)
 ##### 事务管理 @Transcational事务回滚
 
+```
 @Service
 public class GirlService {
     @Autowired
@@ -163,3 +164,4 @@ public class GirlService {
         girlRepository.save(girlB);
 
     }
+    ```
