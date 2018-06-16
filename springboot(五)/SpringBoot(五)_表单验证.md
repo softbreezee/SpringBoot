@@ -24,7 +24,8 @@ public class Girl  {
 ```
 
 (2) 在controller 中增加@Valid + BindingResult 
-
+    1、自动封装请求参数到girl对象
+    2、在girl对象设置好验证的内容，在这里的方法加注解@Valid，表示对girl的验证，验证的结果会返回到bindingResult中
 ```
     @PostMapping("/girls")
     public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult){
@@ -35,6 +36,14 @@ public class Girl  {
         }
         return girlRepository.save(girl);
     }
+//    @PostMapping("/girls")
+//    public Girl addGirl(@RequestParam(value = "age") Integer age,
+//                        @RequestParam(value = "cupSize") String cupSize){
+//        Girl girl = new Girl();
+//        girl.setAge(age);
+//        girl.setCupSize(cupSize);
+//        return girlRepository.save(girl);
+//    }
 ```
 
 (3) 测试结果
