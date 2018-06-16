@@ -329,3 +329,4 @@ public class GirlControllerTest {
     }
 }
 ```
+另:mvn clean package -Dmaven.test.skip=true
