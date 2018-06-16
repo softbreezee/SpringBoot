@@ -162,6 +162,5 @@ public class GirlService {
         girlB.setAge(20);
         girlB.setCupSize("Vvvvvvv");
         girlRepository.save(girlB);
-
-    }
-    ```
+}
+```
