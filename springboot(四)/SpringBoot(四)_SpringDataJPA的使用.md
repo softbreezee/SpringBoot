@@ -53,10 +53,11 @@ spring:
 ##### 实体类和 Dao
 
 ```
+//一个类对应一个表
 @Entity
 public class Girl  {
 
-
+    //自增长
     @Id
     @GeneratedValue
     private int id;
@@ -134,6 +135,7 @@ public class GirlController {
 }
 
 ```
+
 
 注意：
 - 数据库建库dbgirl
