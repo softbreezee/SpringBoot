@@ -296,4 +296,36 @@ public enum ResultEnum {
 }
 ```
 
-玩的开心！
+##### 测试
+对service的测试，右击->Run GirlServiceTest(测试整个测试类，也可以只测试一个方法)
+```
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class GirlServiceTest {
+    @Resource
+    private GirlService girlService;
+
+    @Test
+    public void findOneTest(){
+        Girl g = girlService.findOne(1);
+        Assert.assertEquals(new Integer(15),g.getAge());
+    }
+}
+```
+对controller的girlList()的测试
+```
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class GirlControllerTest {
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    public void girlList() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/girls"))//相应的qingqiufangshi
+                .andExpect(MockMvcResultMatchers.status().isOk());
+		.andExpect(MockMvcResultMatchers.content().string("abc"));
+    }
+}
+```
