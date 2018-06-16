@@ -16,7 +16,7 @@
 ```
 (2) 创建HttpAspect.java 文件
   -  类上加入@Aspect @Component 注解
- - 使用@Pointcut 定义一个公共的方法，定义切哪个点
+ - 使用@Pointcut 定义一个共用的方法，定义切哪个点
  -  @Before @After    @AfterReturning 这三个注解是切的时间点
  -  使用org.slf4j.Logger 进行日志记录
 ```
@@ -54,15 +54,15 @@ public class HttpAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         // url
-        logger.info("url={}",request.getRequestURL());
-        //method
-        logger.info("method = {}",request.getMethod());
-        //ip
-        logger.info("ip = {}",request.getRemoteAddr());
-        //类方法
-        logger.info("class_method={}",joinPoint.getSignature().getDeclaringTypeName()+"."+ joinPoint.getSignature().getName());
-        //参数
-        logger.info("args = {}",joinPoint.getArgs());
+         logger.info("url={}",request.getRequestURL());
+         //method
+         logger.info("method = {}",request.getMethod());
+         //ip
+         logger.info("ip = {}",request.getRemoteAddr());
+         //类方法
+         logger.info("class_method={}",joinPoint.getSignature().getDeclaringTypeName()+"."+ joinPoint.getSignature().getName());
+         //参数，是指请求中的参数
+         logger.info("args = {}",joinPoint.getArgs());
 
     }
 
@@ -72,6 +72,7 @@ public class HttpAspect {
 
     }
 
+    //获取返回的内容
     @AfterReturning(pointcut = "log()",returning = "object")
     public void doAfterReturning(Object object){
         logger.info("response = {}",object);
