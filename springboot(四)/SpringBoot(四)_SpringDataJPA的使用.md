@@ -142,3 +142,24 @@ public class GirlController {
 - 我使用的是springboot2.0.2版本，已经没有findOne 方法，使用findById(id).get() 来获得
 - 测试大家可以使用谷歌浏览器插件Restlet Client - REST API Testing
 - 源码下载：[github](https://github.com/runzhenghengbin/SpringBoot)
+##### 事务管理 @Transcational事务回滚
+
+@Service
+public class GirlService {
+    @Autowired
+    private GirlRepository girlRepository;
+
+    @Transactional
+    public  void insertTwo(){
+
+        Girl girl = new Girl();
+        girl.setAge(18);
+        girl.setCupSize("N");
+        girlRepository.save(girl);
+
+        Girl girlB = new Girl();
+        girlB.setAge(20);
+        girlB.setCupSize("Vvvvvvv");
+        girlRepository.save(girlB);
+
+    }
