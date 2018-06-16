@@ -28,8 +28,11 @@
 （1） 创建controller 类
 
 ```
+//controller作为控制器接受请求
+//restresponsebody作为返回的响应body
 @RestController
 public class HelloController {
+    //作为一个路由是如何访问到这里
     @RequestMapping(value = {"/hello"},method = RequestMethod.GET)
     public String say(){
         return "Hello Spring Boot!";
