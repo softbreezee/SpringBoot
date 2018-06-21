@@ -80,6 +80,7 @@ public interface GirlRepository extends JpaRepository<Girl,Integer> {
    
 }
 ```
+注意：如果想要有别的功能，比如按照年龄查找，只要按照一定的规则即可！链接：https://www.cnblogs.com/lkdirk/p/7079905.html
 ##### GirlController类
 
 ```
